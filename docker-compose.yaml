@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  web:
+    container_name: web
+    ports:
+      - '8080:80'
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-file: 5
+        max-size: 10m
+    image: 'rolmos/moie-admin:${APP_VERSION}'
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    networks:
+      - app-tier-shared
+
+networks:
+  app-tier-shared:
+    external: true

@@ -1,0 +1,10 @@
+.select-is-invalid .flatpickr-input {
+  border-color: #f46a6a;
+}
+.select-is-invalid > div > div > div {
+  border-color: #f46a6a;
+}
+.has-error input[switch] + label:before{
+  color:red!important;
+}
+
