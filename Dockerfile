@@ -5,5 +5,5 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 ENTRYPOINT ["nginx","-g","daemon off;"]
 
-#docker build -t rolmos/moie-admin .
-#docker run -d -p 80:80 rolmos/moie-admin
+#docker build -t rolmos/moie-admin-isidora .
+#docker run -d -p 80:80 rolmos/moie-admin-isidora

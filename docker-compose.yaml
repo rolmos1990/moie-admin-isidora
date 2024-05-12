@@ -10,7 +10,7 @@ services:
       options:
         max-file: 5
         max-size: 10m
-    image: 'rolmos/moie-admin:${APP_VERSION}'
+    image: 'rolmos/moie-admin-isidora:${APP_VERSION}'
     deploy:
       restart_policy:
         condition: on-failure
