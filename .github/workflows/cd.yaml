@@ -113,6 +113,6 @@ jobs:
           DOCKER_TAG: ${{ steps.short-sha.outputs.sha }}
           SSH_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
         run: |
-            ssh staging "cd /var/apps/frontend && docker-compose stop"
+            ssh staging "cd /var/apps/frontend && docker-compose down -v"
             ssh staging "cd /var/apps/frontend && APP_VERSION=0.1-$SHA docker-compose pull"
             ssh staging "cd /var/apps/frontend && APP_VERSION=0.1-$SHA docker-compose up -d"
