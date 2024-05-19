@@ -17,7 +17,7 @@ const InputPhoneField = (props) => {
             name={props.name}
             value={props.value}
             required={props.required}
-            country={props.country || 'co'}
+            country={props.country || 'cl'}
             placeholder={props.placeholder}
             onChange={(value) => props.onChange && props.onChange(value)}
             validate={
