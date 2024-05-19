@@ -155,57 +155,14 @@ export const BILL_MEMO_TYPES = {
 };
 
 export const PAYMENT_FORMS = {
-    DEPOSIT: 'Consignación',
+    DEPOSIT: 'Deposito',
     BANK_TRANSFER: 'Transferencia bancaria',
 };
 export const PAYMENT_FORMS_LIST = Object.keys(PAYMENT_FORMS).map(s => ({label: PAYMENT_FORMS[s], value: PAYMENT_FORMS[s]}))
 
 export const BANKS = {
-"Nequi": 'Nequi',
-"Daviplata": 'Daviplata',
-"Aportes en Linea": 'Aportes en Línea',
-"Asopagos": 'Asopagos',
-"Banco Agrario de Colombia": 'Banco Agrario de Colombia',
-"Banco AV Villas": 'Banco AV Villas',
-"Banco BBVA": 'Banco BBVA',
-"Banco BCSC": 'Banco BCSC',
-"Banco Citibank": 'Banco Citibank',
-"Banco Compartir": 'Banco Compartir',
-"Banco Coopcentral": 'Banco Coopcentral',
-"Banco Credifinanciera S.A.C.F": 'Banco Credifinanciera S.A.C.F',
-"Banco Davivienda": 'Banco Davivienda',
-"Banco de Bogotá": 'Banco de Bogotá',
-"Banco de la República": 'Banco de la República',
-"Banco de Occidente": 'Banco de Occidente',
-"Banco Falabella": 'Banco Falabella',
-"Banco Finandina": 'Banco Finandina',
-"Banco GNB Sudameris": 'Banco GNB Sudameris',
-"Banco Itaú Corpbanca Colombia S.A.": 'Banco Itaú Corpbanca Colombia S.A.',
-"Banco Multibank S.A.": 'Banco Multibank S.A.',
-"Banco Mundo mujer": 'Banco Mundo mujer',
-"Banco Pichincha": 'Banco Pichincha',
-"Banco Popular": 'Banco Popular',
-"Banco Santander de Negocios Colombia S.A.": 'Banco Santander de Negocios Colombia S.A.',
-"Banco Serfinanza": 'Banco Serfinanza',
-"Bancoldex": 'Bancoldex',
-"Bancolombia": 'Bancolombia',
-"Bancoomeva": 'Bancoomeva',
-"BNP Paribas": 'BNP Paribas',
-"Coltefinanciera": 'Coltefinanciera',
-"Compensar": 'Compensar',
-"Confiar Cooperativa Financiera": 'Confiar Cooperativa Financiera',
-"Cooperativa Financiera Cotrafa": 'Cooperativa Financiera Cotrafa',
-"Cooperativa Financiera de Antioquia": 'Cooperativa Financiera de Antioquia',
-"Deceval": 'Deceval',
-"Dirección del Tesoro Nacional": 'Dirección del Tesoro Nacional',
-"Dirección del Tesoro Nacional- Regalias": 'Dirección del Tesoro Nacional- Regalias',
-"Enlace Operativo S.A.": 'Enlace Operativo S.A.',
-"Fedecajas": 'Fedecajas',
-"Financiera Juriscoop": 'Financiera Juriscoop',
-"Jp Morgan": 'Jp Morgan',
-"Red Multibanca Colpatria": 'Red Multibanca Colpatria',
-"Simple S.A.": 'Simple S.A.',
-"Otro": 'Otro'
+"Banco de Chile": 'Banco de Chile',
+"Banco Santander": 'Banco Santander'
 };
 export const BANKS_LIST = Object.keys(BANKS).map(s => ({label: BANKS[s], value: BANKS[s]}))
 
