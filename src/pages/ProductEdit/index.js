@@ -450,7 +450,7 @@ const ProductEdit = (props) => {
                                                         <div className="text-center m-5">
                                                             <h3>Vista Previa</h3> <br />
                                                             <div style={{backgroundColor: '1px lightgray solid', padding: '10px'}}>
-                                                            <Images src={`http://moie2.lucymodas.com/./uploads/catalogs/${productData.reference}.jpg`}
+                                                            <Images src={`http://moie-core.isidoramodas.com/./uploads/catalogs/${productData.reference}.jpg`}
                                                                     alt={productData.reference}
                                                                     height={300}
                                                                     className="img-fluid mx-auto d-block tab-img"/>
