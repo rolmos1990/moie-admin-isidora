@@ -22,7 +22,7 @@ const getDeliveryType = (_type = "") => {
 }
 
 const metodos = {
-    "1": 'Interrapidisimo',
+    "1": 'BlueExpress',
     "4": 'ServiEntrega'
 };
 

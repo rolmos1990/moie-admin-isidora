@@ -52,18 +52,16 @@ export const CHARGE_ON_DELIVERY = 3;
 
 export const DELIVERY_TYPES = [
     {id: 1, name: "PREVIOUS_PAYMENT", label: "PREVIO PAGO"},
-    {id: 2, name: "PAY_ONLY_DELIVERY", label: "PREVIO PAGO COD"},
-    {id: 3, name: "CHARGE_ON_DELIVERY", label: "CONTRA PAGO"}
+    //{id: 2, name: "PAY_ONLY_DELIVERY", label: "PREVIO PAGO COD"},
+    {id: 3, name: "CHARGE_ON_DELIVERY", label: "CONTRA REMBOLSO"}
 ]
 
 export const DELIVERY_METHODS_PAYMENT_TYPES = ['MENSAJERO'];
 
 export const DELIVERY_METHODS_IDS = {
-    INTERRAPIDISIMO: 1,
+    BLUEEXPRESS: 1,
     MENSAJERO: 2,
-    OTRO: 3,
-    SERVIENTREGA: 4,
-    PAYU: 5
+    OTRO: 3
 };
 
 export const DELIVERY_METHODS = {

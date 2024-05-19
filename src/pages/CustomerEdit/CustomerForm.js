@@ -165,7 +165,7 @@ const CustomerForm = (props) => {
                                 <div className={"float-end"}>
                                     <Row>
                                         <Col>
-                                            ¿Contrapago?
+                                            ¿Contra Rembolso?
                                         </Col>
                                         <Col>
                                             <FieldSwitch

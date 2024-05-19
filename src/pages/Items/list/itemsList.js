@@ -88,7 +88,7 @@ const ItemsList = props => {
                     <CardBody>
                         <div className="button-items mb-3">
                         <button onClick={() => setType(2)} className={`btn ${type == 2 ? 'btn-primary' : 'btn-secondary'}`}>Bolsas</button>
-                        <button onClick={() => setType(1)} className={`btn ${type == 1 ? 'btn-primary' : 'btn-secondary'}`}>Interrapidisimo</button>
+                        <button onClick={() => setType(1)} className={`btn ${type == 1 ? 'btn-primary' : 'btn-secondary'}`}>BlueExpress</button>
                         </div>
 
                         <PaginationProvider pagination={paginationFactory(pageOptions)}>

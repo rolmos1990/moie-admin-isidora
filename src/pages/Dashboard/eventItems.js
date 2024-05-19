@@ -12,14 +12,14 @@ import {GROUPS} from "../../common/constants";
 
 const EventItems = (props) => {
     const {onGetEvents, onGetFieldOptions, fieldOptions} = props;
-    const [interrapidisimo, setInterrapidisimo] = useState({});
+    const [blueexpress, setBlueexpress] = useState({});
     const [bolsas, setBolsas] = useState({});
     const [alarms, setAlarms] = useState([]);
 
     useEffect(() => {
         fetchEventsApi({}).then((p => {
             const event = p.event;
-            setInterrapidisimo((event.filter(item => item.eventType == 1))[0]);
+            setBlueexpress((event.filter(item => item.eventType == 1))[0]);
             setBolsas((event.filter(item => item.eventType == 2))[0]);
         }))
 
@@ -70,7 +70,7 @@ const EventItems = (props) => {
                     <h5 className="mb-2 mt-1"><b>Creditos Int.</b></h5>
                     <h4>
                             <span>
-                            <i class="me-2"></i> &nbsp; { allowed ? getLimitColor('ICREDIT', interrapidisimo.amount) : ''}
+                            <i class="me-2"></i> &nbsp; { allowed ? getLimitColor('ICREDIT', blueexpress.amount) : ''}
                             </span>
                     </h4>
                 </Col>

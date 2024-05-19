@@ -21,10 +21,9 @@ const LocalityEdit = (props) => {
     const [deliveryMethod, setDeliveryMethod] = useState(1);
     const isEdit = props.match.params.id || (deliveryLocality && deliveryLocality.id);
 
-    const deliveryMethods = [{label: "Interrapidisimo", value: 1}, {label: "ServiEntrega", value: 4}];
+    const deliveryMethods = [{label: "BlueExpress", value: 1}, {label: "ServiEntrega", value: 4}];
 
-    const serviEntrega = [{label: "Contado", value: 1}, {label: "Contado - AlCobro", value: 2}, {label: "AlCobro", value: 3}];
-    const interrapidisimo = [{label: "Contado", value: 1}, {label: "Contado - AlCobro", value: 2}, {label: "AlCobro", value: 3}];
+    const blueexpress = [{label: '-', value: null}, {label: "Contado", value: 1}, {label: "Contado - AlCobro", value: 2}, {label: "AlCobro", value: 3}];
 
     const [deliveryMethodTypeList, setDeliveryMethodTypeList] = useState([]);
 
@@ -42,9 +41,7 @@ const LocalityEdit = (props) => {
     useEffect(() => {
 
         if(deliveryMethod === 1){
-            setDeliveryMethodTypeList(interrapidisimo);
-        } else if(deliveryMethod === 4){
-            setDeliveryMethodTypeList(serviEntrega);
+            setDeliveryMethodTypeList(blueexpress);
         } else {
             setDeliveryMethodTypeList([]);
         }
@@ -58,10 +55,8 @@ const LocalityEdit = (props) => {
             setDeliveryMethod(deliveryLocality.deliveryMethod);
 
             if(deliveryLocality.deliveryMethodId === 1){
-                setDeliveryMethodTypeList(interrapidisimo);
-            } else if(deliveryLocality.deliveryMethodId === 4){
-                setDeliveryMethodTypeList(serviEntrega);
-            } else {
+                setDeliveryMethodTypeList(blueexpress);
+            } else{
                 setDeliveryMethodTypeList([]);
             }
 

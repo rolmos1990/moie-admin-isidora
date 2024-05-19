@@ -60,7 +60,7 @@ const initialState = {
                     data: []
                 },
                 {
-                    name: 'Monto Contra Entrega',
+                    name: 'Monto Contra Rembolso',
                     type: 'column',
                     color: '#5b5b62',
                     data: []
@@ -72,7 +72,7 @@ const initialState = {
                     data: []
                 },
                 {
-                    name: 'Pedidos Contra Entrega',
+                    name: 'Pedidos Contra Rembolso',
                     yAxis: 1,
                     color: '#434348',
                     data: []

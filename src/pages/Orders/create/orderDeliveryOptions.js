@@ -88,9 +88,10 @@ const OrderDeliveryOptions = (props) => {
     }, [fieldOptions]);
 
     useEffect(() => {
-        if(deliveryMethod === "INTERRAPIDISIMO" || deliveryMethod === "SERVIENTREGA") {
+        console.log('deliveryMethod: ' , deliveryMethod);
+        if(deliveryMethod === "BLUEEXPRESS") {
             const list = deliveryLocalities.map(item => {
-                if(deliveryMethod === 'SERVIENTREGA') {
+                if(deliveryMethod === 'BLUEEXPRESS') {
                     if (item.deliveryType == 1) {
                         //sucursal
                         item.icon = "&nbsp;&nbsp;&nbsp;&nbsp;"+ item.timeInDays +"&nbsp;&nbsp;<i class='fa fa-building' ></i>";
@@ -106,7 +107,10 @@ const OrderDeliveryOptions = (props) => {
                 }
                 return item;
             }).filter(me => me.deliveryMethodId === DELIVERY_METHODS_IDS[deliveryMethod]) || [];
-            setDeliveryLocalitiesList([getEmptyOptions(), ...arrayToOptions(list, deliveryMethod === "SERVIENTREGA")]);
+
+            console.log('list: ', list);
+
+            setDeliveryLocalitiesList([getEmptyOptions(), ...arrayToOptions(list, deliveryMethod === "BLUEEXPRESS")]);
         }
     }, [deliveryLocalities, deliveryMethod]);
 

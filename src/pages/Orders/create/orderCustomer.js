@@ -275,7 +275,7 @@ const OrderCustomer = (props) => {
 
                     </Col>
                     <Col md={2} className="text-right">
-                        <Tooltip placement="bottom" title={`${customer.status ? 'Inactivar Contrapago' : 'Activar Contrapago'}`} aria-label="add">
+                        <Tooltip placement="bottom" title={`${customer.status ? 'Inactivar COD' : 'Activar COD'}`} aria-label="add">
                             <button type="button"
                                     size="small"
                                     className={`btn btn-sm ${customer.status ? 'text-danger' : 'text-success'}`}

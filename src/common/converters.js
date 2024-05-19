@@ -13,8 +13,8 @@ export const ConverterDeliveryType = (deliveryType) => {
     switch (deliveryType) {
         case 1:
             return 'PREVIO PAGO';
-        case 2:
-            return 'PREVIO PAGO COD';
+        //case 2:
+        //    return 'PREVIO PAGO COD';
         case 3:
             return 'CONTRA PAGO';
         default:
