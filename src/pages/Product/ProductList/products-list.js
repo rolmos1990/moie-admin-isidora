@@ -55,7 +55,7 @@ const series3 = [55]
 
 const options3 = {
     fill: {
-        colors: ['#5b73e8']
+        colors: ['#7c72eb']
     },
     chart: {
         sparkline: {

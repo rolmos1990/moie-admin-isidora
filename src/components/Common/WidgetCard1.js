@@ -11,7 +11,7 @@ const series1 = [{
 }]
 const options1 = {
     fill: {
-        colors: ['#5b73e8']
+        colors: ['#7c72eb']
     },
     chart: {
         width: 70,

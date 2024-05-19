@@ -56,7 +56,7 @@ const Register = props => {
                 <CardBody className="p-4">
                   <div className="text-center mt-2">
                     <h5 className="text-primary">Register Account</h5>
-                    <p className="text-muted">Get your free Lucy Moie account now.</p>
+                    <p className="text-muted">Get your free Isidora Moie account now.</p>
                   </div>
                   <div className="p-2 mt-4">
                     <AvForm
@@ -165,7 +165,7 @@ const Register = props => {
                   </CardBody>
               </Card>
               <div className="mt-5 text-center">
-                <p>© {new Date().getFullYear()} Lucy Modas. <i
+                <p>© {new Date().getFullYear()} Isidora Modas. <i
                     className="mdi mdi-heart text-danger"></i> Moie V2.0
                         </p>
               </div>

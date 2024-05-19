@@ -102,7 +102,7 @@ const ForgetPasswordPage = props => {
                 </Card>
                 <div className="mt-5 text-center">
                 <p>
-                  © {new Date().getFullYear()} Lucy Modas {" "}
+                  © {new Date().getFullYear()} Isidora Modas {" "}
                   <i className="mdi mdi-heart text-danger" /> Moie v2.0
                 </p>
                 </div>

@@ -17,7 +17,7 @@ const series1 = [{
 
 const options1 = {
     fill: {
-        colors: ['#5b73e8']
+        colors: ['#7c72eb']
     },
     chart: {
         width: 70,
@@ -75,7 +75,7 @@ const series3 = [55]
 
 const options3 = {
     fill: {
-        colors: ['#5b73e8']
+        colors: ['#7c72eb']
     },
     chart: {
         sparkline: {
@@ -265,7 +265,7 @@ const Dashboard = (props) => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
-            <Breadcrumbs title="Lucy Moie" item="Dashboard" />
+            <Breadcrumbs title="Isidora Moie" item="Dashboard" />
             <Row>
                 {reports && reports.length > 0 && (
                     <MiniWidget reports={reports} />

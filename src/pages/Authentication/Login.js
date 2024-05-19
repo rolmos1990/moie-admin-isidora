@@ -105,7 +105,7 @@ const Login = (props) => {
                 <CardBody className="p-4">
                   <div className="text-center mt-2">
                     <h5 className="text-primary">Bienvenido!</h5>
-                    <p className="text-muted">Inicia sesión con Lucy Moie.</p>
+                    <p className="text-muted">Inicia sesión con Isidora Moie.</p>
                   </div>
                   <div className="p-2 mt-4">
                     <AvForm
@@ -157,7 +157,7 @@ const Login = (props) => {
                 </CardBody>
               </Card>
               <div className="mt-5 text-center">
-                <p>© {new Date().getFullYear()} Lucy Modas Web <i
+                <p>© {new Date().getFullYear()} Isidora Modas Web <i
                   className="mdi mdi-heart text-danger"></i> Moie V{process.env.REACT_APP_VERSION}
                         </p>
               </div>

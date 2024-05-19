@@ -10,7 +10,7 @@ $sidebar-menu-item-color: #7b8190;
 $sidebar-menu-sub-item-color: #7b8190;
 $sidebar-menu-item-icon-color: #7b8190;
 $sidebar-menu-item-hover-color: #383c40;
-$sidebar-menu-item-active-color: #5b73e8;
+$sidebar-menu-item-active-color: #7c72eb;
 $sidebar-menu-item-active-bg-color: #f3f8fb;
 $sidebar-menu-item-active-bg-color-dark: #293552;
 $sidebar-width:  250px;
@@ -46,7 +46,7 @@ $footer-color: #74788d;
 $topnav-bg:   #fff;
 
 $menu-item-color: #7b8190;
-$menu-item-active-color: #5b73e8;
+$menu-item-active-color: #7c72eb;
 
 // Right Sidebar
 $rightbar-width:  280px;
@@ -70,7 +70,8 @@ $font-weight-semibold: 600;
 $apex-grid-color: #f8f9fa;
 
 // auth bg
-$auth-bg: rgba(91,140,232,.25);
+//$auth-bg: rgba(91,140,232,.25);
+$auth-bg: rgba(110,122,200,.25);
 
 // table
 $table-head-bg:               $gray-100;
@@ -116,7 +117,7 @@ $grays: map-merge(
   $grays
 );
 
-$blue:    #5b73e8;
+$blue:    #7c72eb;
 $indigo:  #564ab1;
 $purple:  #6f42c1;
 $pink:    #e83e8c;
