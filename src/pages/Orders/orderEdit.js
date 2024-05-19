@@ -595,11 +595,11 @@ const OrderEdit = (props) => {
                                         <span className="p-1">{orderData.customer.email}</span>
                                     </Col>
                                     <Col md={12}>
-                                        <label>Departamento: </label>
+                                        <label>Provincia: </label>
                                         <span className="p-1">{orderData.customer.state?.name}</span>
                                     </Col>
                                     <Col md={12}>
-                                        <label>Municipio: </label>
+                                        <label>Comuna: </label>
                                         <span className="p-1">{orderData.customer.municipality?.name}</span>
                                     </Col>
                                     <Col md={12}>

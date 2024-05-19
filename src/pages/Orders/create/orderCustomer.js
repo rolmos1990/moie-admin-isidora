@@ -243,11 +243,11 @@ const OrderCustomer = (props) => {
                                 <span className="p-1">{customerData.email}</span>
                             </Col>
                             <Col md={6}>
-                                <label>Departamento: </label>
+                                <label>Provincia: </label>
                                 <span className="p-1">{customerData.state?.name}</span>
                             </Col>
                             <Col md={6}>
-                                <label>Municipio: </label>
+                                <label>Comuna: </label>
                                 <span className="p-1">{customerData.municipality?.name}</span>
                             </Col>
                             <Col md={6}>

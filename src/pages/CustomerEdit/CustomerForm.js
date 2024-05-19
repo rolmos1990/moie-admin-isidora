@@ -233,7 +233,8 @@ const CustomerForm = (props) => {
                                         validate={{required: {value: true}}}
                                         onChange={(value) => setCustomerData({...customerData, cellphone: value})}
                                         onValidate={(value, country) => {
-                                            if(country.iso2 === 'co' && (value && value.length === 12)){
+                                            //TODO -- verificar telefonos chilenos
+                                            if(country.iso2 === 'cl' && (value && value.length >= 11)){
                                                 setValidPhone(true);
                                                 return true
                                             }
@@ -268,7 +269,7 @@ const CustomerForm = (props) => {
                         <Row>
                             <Col md="6">
                                 <div className="mb-3">
-                                    <Label htmlFor="state">Departamento <span className="text-danger">*</span></Label>
+                                    <Label htmlFor="state">Provincia <span className="text-danger">*</span></Label>
                                     <FieldSelect
                                         id="state"
                                         defaultValue={state}
@@ -283,7 +284,7 @@ const CustomerForm = (props) => {
                             </Col>
                             <Col md="6">
                                 <div className="mb-3">
-                                    <Label htmlFor="validationCustom03">Municipio <span className="text-danger">*</span></Label>
+                                    <Label htmlFor="validationCustom03">Comuna <span className="text-danger">*</span></Label>
                                     <FieldSelect
                                         id="municipality"
                                         defaultValue={municipality}
@@ -319,7 +320,7 @@ const CustomerForm = (props) => {
                                 </Col>
                                 <Col md="6">
                                     <div className="mb-3">
-                                        <Label htmlFor="validationCustom04">Departamento temporal</Label>
+                                        <Label htmlFor="validationCustom04">Provincia temporal</Label>
                                         <div className="form-control">
                                             {customerData.temporalAddress[0].state}
                                         </div>
