@@ -125,7 +125,9 @@ const OrderProducts = (props) => {
                                 isClearable={true}
                                 conditionalOptions={{fieldName: 'reference', operator: Conditionals.OPERATORS.EQUAL}}
                                 onKeyPress={(e) => {
+                                    console.log(e.target.value);
                                     if(e.which == 13){
+                                        console.log('e.target.value: ', e.target.value);
                                         onGetProduct(e.target.value);
                                         setProductDefault(getEmptyOptions());
                                     }

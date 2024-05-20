@@ -14,6 +14,12 @@ const statusOptions = buildOptions(ORDER_STATUS_LIST);
 const deliveryMethodsOptions = buildOptions(DELIVERY_METHODS_LIST);
 const deliveryTypeOptions = buildOptions(DELIVERY_TYPES_LIST);
 
+const deliveryTypes = {
+    PREVIO_PAGO:  DELIVERY_TYPES[0].label,
+    PREVIO_PAGO_COD: '',
+    PAGO_CONTRA_ENTREGA: DELIVERY_TYPES[1].label
+};
+
 const orderColumns = (onSelectedOrder, showAsModal, conciliationView) => {
     let columns = [
         {
@@ -107,18 +113,18 @@ const orderColumns = (onSelectedOrder, showAsModal, conciliationView) => {
                     <div>{item.deliveryMethod.name}</div>
                     <small>{item.tracking}</small>
 
-                    {item.orderDelivery.deliveryType === 1 && (
-                        <Tooltip placement="bottom" title={DELIVERY_TYPES[0].label} aria-label="add">
+                    {item.orderDelivery && item.orderDelivery.deliveryType === 1 && (
+                        <Tooltip placement="bottom" title={deliveryTypes.PREVIO_PAGO} aria-label="add">
                             <i className={"mdi mdi-cash font-size-18 mr-1 text-info"}> </i>
                         </Tooltip>
                     )}
-                    {item.orderDelivery.deliveryType === 2 && (
-                        <Tooltip placement="bottom" title={DELIVERY_TYPES[1].label} aria-label="add">
+                    {item.orderDelivery && item.orderDelivery.deliveryType === 2 && (
+                        <Tooltip placement="bottom" title={deliveryTypes.PREVIO_PAGO_COD} aria-label="add">
                             <i className={"mdi mdi-cash font-size-18 mr-1 text-warning"}> </i>
                         </Tooltip>
                     )}
-                    {item.orderDelivery.deliveryType === 3 && (
-                        <Tooltip placement="bottom" title={DELIVERY_TYPES[2].label} aria-label="add">
+                    {item.orderDelivery && item.orderDelivery.deliveryType === 3 && (
+                        <Tooltip placement="bottom" title={deliveryTypes.PAGO_CONTRA_ENTREGA} aria-label="add">
                             <i className={"mdi mdi-handshake font-size-18 mr-1 text-info"}> </i>
                         </Tooltip>
                     )}
