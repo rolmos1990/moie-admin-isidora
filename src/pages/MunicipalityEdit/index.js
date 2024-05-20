@@ -64,7 +64,7 @@ const MunicipalityEdit = (props) => {
         <React.Fragment>
             <div className="page-content">
                 <Container fluid>
-                    <Breadcrumb hasBack path="/municipalities" title={municipalityData.name} item={"Estado"}/>
+                    <Breadcrumb hasBack path="/municipalities" title={municipalityData.name} item={"Comunas"}/>
                     <HasPermissions permissions={[PERMISSIONS.LOCALITY_CREATE, PERMISSIONS.LOCALITY_EDIT]} renderNoAccess={() => <NoAccess/>}>
                         <AvForm className="needs-validation" autoComplete="off"
                                 onValidSubmit={(e, v) => {
@@ -115,7 +115,7 @@ const MunicipalityEdit = (props) => {
                                                         />
                                                     </div>
                                                 </Col>
-                                                <Col md="4">
+                                                {/*<Col md="4">
                                                     <div className="mb-3">
                                                         <Label htmlFor="field_name">Código DIAN <span className="text-danger">*</span></Label>
                                                         <FieldText
@@ -127,7 +127,7 @@ const MunicipalityEdit = (props) => {
                                                             required
                                                         />
                                                     </div>
-                                                </Col>
+                                                </Col>*/}
                                             </Row>
                                             <Row>
                                                 <Col md={12} className="text-right">

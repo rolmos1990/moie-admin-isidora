@@ -25,15 +25,15 @@ const municipalityColumns = (onDelete = false) => {
             filterType: "text",
             filterCondition: Conditionals.OPERATORS.LIKE,
         },
-        {
+        /*{
             text: "Código DIAN",
             dataField: "dianCode",
             sort: true,
             filter: true,
             filterType: "text",
-        },
+        },*/
         {
-            text: "Estados",
+            text: "Provincias",
             dataField: "state",
             sort: true,
             filter: false,

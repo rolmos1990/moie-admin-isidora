@@ -165,7 +165,7 @@ const CustomerForm = (props) => {
                                 <div className={"float-end"}>
                                     <Row>
                                         <Col>
-                                            ¿Contra Rembolso?
+                                            ¿Contra Entrega?
                                         </Col>
                                         <Col>
                                             <FieldSwitch
@@ -274,7 +274,7 @@ const CustomerForm = (props) => {
                                         id="state"
                                         defaultValue={state}
                                         name={"state"}
-                                        placeholder={"Indique un departamento"}
+                                        placeholder={"Indique una provincia"}
                                         options={statesOptions}
                                         onChange={handleSelectDepartment}
                                         required
@@ -289,7 +289,7 @@ const CustomerForm = (props) => {
                                         id="municipality"
                                         defaultValue={municipality}
                                         name={"municipality"}
-                                        placeholder={"Indique un municipio"}
+                                        placeholder={"Indique una comuna"}
                                         options={municipalitiesOptions}
                                         required
                                         isSearchable
@@ -328,7 +328,7 @@ const CustomerForm = (props) => {
                                 </Col>
                                 <Col md="6">
                                     <div className="mb-3">
-                                        <Label htmlFor="validationCustom04">Municipio temporal</Label>
+                                        <Label htmlFor="validationCustom04">Comuna temporal</Label>
                                         <div className="form-control">
                                             {customerData.temporalAddress[0].municipality}
                                         </div>

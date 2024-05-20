@@ -25,7 +25,7 @@ const statesColumns = (onDelete = false) => {
             filterType: "text",
             filterCondition: Conditionals.OPERATORS.LIKE,
         },
-        {
+        /*{
             text: "Código DIAN",
             dataField: "dianCode",
             sort: true,
@@ -38,7 +38,7 @@ const statesColumns = (onDelete = false) => {
             sort: true,
             filter: true,
             filterType: "text",
-        },
+        },*/
         {
             text: "Estado",
             dataField: "status",

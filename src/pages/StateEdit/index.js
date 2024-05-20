@@ -85,7 +85,7 @@ const StateEdit = (props) => {
                                                     </div>
                                                 </Col>
                                             </Row>
-                                            <Row>
+                                            {/*<Row>
                                                 <Col md="6">
                                                     <div className="mb-3">
                                                         <Label htmlFor="field_name">Código DIAN <span className="text-danger">*</span></Label>
@@ -112,7 +112,7 @@ const StateEdit = (props) => {
                                                         />
                                                     </div>
                                                 </Col>
-                                            </Row>
+                                            </Row>*/}
                                             <Row>
                                                 <Col md={12} className="text-right">
                                                     <ButtonSubmit loading={props.loading}/>

@@ -11,7 +11,7 @@ const States = () => {
         <React.Fragment>
             <div className="page-content">
                 <Container fluid>
-                    <Breadcrumb path="/states" title={null} item="Estados"/>
+                    <Breadcrumb path="/states" title={null} item="Provincia"/>
                     <HasPermissions permissions={[PERMISSIONS.LOCALITY_LIST]} renderNoAccess={() => <NoAccess/>}>
                         <StatesList/>
                     </HasPermissions>

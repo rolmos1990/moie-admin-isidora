@@ -67,8 +67,8 @@ const MunicipalityList = props => {
 
     const onDelete = (id) => {
         ConfirmationModalAction({
-            title: '¿Seguro desea eliminar el Municipio?',
-            description: 'Usted está eliminado este Municipio, una vez eliminado no podrá ser recuperado.',
+            title: '¿Seguro desea eliminar la Comuna?',
+            description: 'Usted está eliminado esta Comuna, una vez eliminada no podrá ser recuperada.',
             id: '_clienteModal',
             onConfirm: () => onConfirmDelete(id)
         });
@@ -101,7 +101,7 @@ const MunicipalityList = props => {
                                                 <Col md={6}>
                                                     <div className="form-inline mb-3">
                                                         <div className="search-box ms-2">
-                                                            <h4 className="text-info"><i className="uil-shopping-cart-alt me-2"></i> Municipios</h4>
+                                                            <h4 className="text-info"><i className="uil-shopping-cart-alt me-2"></i> Comunas</h4>
                                                             {/*{!filter && (
                                                                 <div className="position-relative">
                                                                     <SearchBar {...toolkitProps.searchProps}/>

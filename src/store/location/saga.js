@@ -121,7 +121,7 @@ function* fetchMunicipalities({conditional, limit, offset}) {
 function* municipalityRegister({payload: {data, history}}) {
     try {
         const response = yield call(registerMunicipalityApi, data)
-        showResponseMessage(response, "Municipio creado!");
+        showResponseMessage(response, "Comuna creada!");
         yield put(registerMunicipalitySuccess(response))
         history.push("/municipalities")
     } catch (error) {
@@ -132,7 +132,7 @@ function* municipalityRegister({payload: {data, history}}) {
 function* municipalityUpdate({payload: {id, data, history}}) {
     try {
         const response = yield call(updateMunicipalityApi, id, data)
-        showResponseMessage(response, "Municipio actualizada!");
+        showResponseMessage(response, "Comuna actualizada!");
         yield put(updateMunicipalitySuccess(response))
         history.push("/municipalities")
 
@@ -144,7 +144,7 @@ function* municipalityUpdate({payload: {id, data, history}}) {
 function* municipalityDelete({payload: {id, history}}) {
     try {
         yield call(deleteMunicipalityApi, id)
-        showResponseMessage({status: 200}, "Municipio borrado!");
+        showResponseMessage({status: 200}, "Comuna borrada!");
         yield put(deleteMunicipalitySuccess(id))
         history.push("/municipalities")
 

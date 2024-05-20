@@ -13,6 +13,7 @@ import {DELIVERY_METHODS, REPORT_TYPES} from "../../common/constants";
 import {getEmptyOptions} from "../../common/converters";
 import {getDeliveryMethods} from "../../store/order/actions";
 import {generateReport, generateReportRestart} from "../../store/reports/actions";
+import {showMessage} from "../../components/MessageToast/ShowToastMessages";
 
 const ConciliationReportForm = ({onCloseModal, deliveryMethods, onGetDeliveryMethods, loading, error, success, onGenerateReport, onRestartReport}) => {
 
@@ -34,10 +35,18 @@ const ConciliationReportForm = ({onCloseModal, deliveryMethods, onGetDeliveryMet
 
     useEffect(() => {
         if (deliveryMethods && deliveryMethods.length > 0) {
-            setDeliveryMethod(deliveryMethods.find(op => op.name === DELIVERY_METHODS.INTERRAPIDISIMO).code);
-            setDeliveryMethodList([getEmptyOptions(),
-                ...deliveryMethods.filter(op => op.name === DELIVERY_METHODS.INTERRAPIDISIMO || op.name === DELIVERY_METHODS.MENSAJERO).map(op => ({label: op.name, value: op.code}))]
-            );
+            console.log('Delivery Methods: ', deliveryMethods);
+            try {
+                setDeliveryMethod(deliveryMethods.find(op => op.code === DELIVERY_METHODS.INTERRAPIDISIMO).code);
+                setDeliveryMethodList([getEmptyOptions(),
+                    ...deliveryMethods.filter(op => op.code === DELIVERY_METHODS.INTERRAPIDISIMO || op.code === DELIVERY_METHODS.MENSAJERO).map(op => ({
+                        label: op.name,
+                        value: op.code
+                    }))]
+                );
+            }catch(e){
+                showMessage.error('No se ha podido realizar la operación');
+            }
         }
     }, [deliveryMethods]);
 

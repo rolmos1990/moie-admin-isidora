@@ -11,7 +11,7 @@ const Municipalities = () => {
         <React.Fragment>
             <div className="page-content">
                 <Container fluid>
-                    <Breadcrumb path="/municipalities" title={null} item="Municipios"/>
+                    <Breadcrumb path="/municipalities" title={null} item="Comunas"/>
                     <HasPermissions permissions={[PERMISSIONS.LOCALITY_LIST]} renderNoAccess={() => <NoAccess/>}>
                         <MunicipalityList/>
                     </HasPermissions>

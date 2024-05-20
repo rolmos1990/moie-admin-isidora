@@ -79,8 +79,8 @@ const Navbar = props => {
                 if(aliasAndPhone){
                     phoneAlias = aliasAndPhone[0];
 
-                    if(phone.indexOf("+57") === -1){
-                        phone = "+57" + phone;
+                    if(phone.indexOf("+56") === -1){
+                        phone = "+56" + phone;
                     }
 
                     phone = aliasAndPhone[1];
@@ -93,7 +93,6 @@ const Navbar = props => {
     }
 
     const copyToClipboard = (wsNumberEncoded) => {
-        console.log('numberEncoded: ', wsNumberEncoded);
         try {
             setCopying(true)
             var textField = document.createElement('textarea')
@@ -350,10 +349,10 @@ const Navbar = props => {
                                                     </Link>
                                                     <div className={classname("dropdown-menu", {show: utility})}>
                                                         <Link to="/states" className="dropdown-item">
-                                                            {props.t("Estados")}
+                                                            {props.t("Provincias")}
                                                         </Link>
                                                         <Link to="/municipalities" className="dropdown-item">
-                                                            {props.t("Municipios")}
+                                                            {props.t("Comunas")}
                                                         </Link>
                                                     </div>
                                                 </div>
