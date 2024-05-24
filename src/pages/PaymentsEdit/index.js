@@ -55,7 +55,7 @@ const PaymentEdit = (props) => {
         const data = {...values, status: values._status};
         if (values.type) data.type = values.type.value;
         if (values.targetBank) data.targetBank = values.targetBank.value;
-        if (values.originBank) data.originBank = values.originBank.value;
+        //if (values.originBank) data.originBank = values.originBank.value;
         delete data._status;
         if (!isEdit) {
             props.onCreate(data, props.history)
