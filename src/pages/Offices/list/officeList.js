@@ -86,8 +86,8 @@ const OfficeList = props => {
 
     const onDelete = (id) => {
         ConfirmationModalAction({
-            title: '¿Seguro desea eliminar la Comuna?',
-            description: 'Usted está eliminado esta Comuna, una vez eliminada no podrá ser recuperada.',
+            title: '¿Seguro desea eliminar el Despacho?',
+            description: 'Usted está eliminado este despacho, una vez eliminada no podrá ser recuperado.',
             id: '_clienteModal',
             onConfirm: () => onConfirmDelete(id)
         });

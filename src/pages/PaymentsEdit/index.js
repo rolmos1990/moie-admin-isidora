@@ -132,15 +132,13 @@ const PaymentEdit = (props) => {
                                                     <>
                                                         <Col md="6">
                                                             <div className="mb-3">
-                                                                <Label htmlFor="state">Banco origen <span className="text-danger">*</span></Label>
-                                                                <FieldSelect
-                                                                    id="originBank"
+                                                                <Label htmlFor="state">Banco origen <span className="text-danger">*</span></Label>s
+                                                                <FieldText
+                                                                    id={"originBank"}
                                                                     name={"originBank"}
-                                                                    placeholder={"Seleccione un banco"}
-                                                                    defaultValue={paymentData.originBank}
-                                                                    options={BANKS_LIST}
-                                                                    required
-                                                                    isSearchable
+                                                                    value={paymentData.originBank}
+                                                                    minLength={1}
+                                                                    maxLength={255}
                                                                 />
                                                             </div>
                                                         </Col>

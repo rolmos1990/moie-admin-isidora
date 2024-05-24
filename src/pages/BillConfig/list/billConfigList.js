@@ -60,8 +60,8 @@ const BillConfigList = props => {
 
     const onDelete = (id) => {
         ConfirmationModalAction({
-            title: '¿Seguro desea eliminar la Comuna?',
-            description: 'Usted está eliminado esta Comuna, una vez eliminado no podrá ser recuperado.',
+            title: '¿Seguro desea eliminar la Resolución?',
+            description: 'Usted está eliminado esta resolucioón, una vez eliminado no podrá ser recuperada.',
             id: '_clienteModal',
             onConfirm: () => onConfirmDelete(id)
         });
