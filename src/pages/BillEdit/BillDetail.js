@@ -225,12 +225,6 @@ const BillDetail = (props) => {
                                             <label>ID: </label>
                                             <span className="p-1">{bill.id}</span>
                                         </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col md={6}>
-                                            <label>Número legal: </label>
-                                            <span className="p-1">{bill.legalNumber}</span>
-                                        </Col>
                                         <Col md={6}>
                                             <label>Pedido: </label>
                                             <span className="p-1">{bill.order.id}</span>
@@ -272,7 +266,7 @@ const BillDetail = (props) => {
                                         <li className="nav-item">
                                             <a className={`nav-link ${activeTab === 1 ? 'active' : ''}`} data-bs-toggle="tab" href="#tab1" role="tab" aria-selected="false" onClick={() => setActiveTab(1)}>
                                                 <span className="d-block d-sm-none"><i className="fas fa-home"> </i></span>
-                                                <span className="d-none d-sm-block">Bicacora Factura Dian</span>
+                                                <span className="d-none d-sm-block">Bicacora Factura</span>
                                             </a>
                                         </li>
                                         <li className="nav-item">
@@ -284,14 +278,31 @@ const BillDetail = (props) => {
                                     </ul>
                                     <div className="tab-content p-3 text-muted">
                                         <div className={`tab-pane ${activeTab === 1 ? 'active' : ''}`} id="tab2" role="tabpanel">
-                                            <h4 className="card-title text-info">Bitacora Dian</h4>
+                                            <h4 className="card-title text-info">Bitacora Factura</h4>
                                             <hr/>
-                                            <div dangerouslySetInnerHTML={{__html: formatLog(bill.dianLog)}}/>
+                                            <div className="col-12 d-flex align-items-center justify-content-center">
+                                            <textarea
+                                                rows={30}
+                                                readOnly
+                                                className="form-control w-100"
+                                                style={{height: '100%', border: 'none'}}
+                                            >
+                                                {bill.dianLog}
+                                            </textarea>
+                                            </div>
                                         </div>
-                                        <div className={`tab-pane ${activeTab === 2 ? 'active' : ''}`} id="tab2" role="tabpanel">
+                                        <div className={`tab-pane ${activeTab === 2 ? 'active' : ''}`} id="tab2"
+                                             role="tabpanel">
                                             <h4 className="card-title text-info">Bitacora Nota de Credito</h4>
                                             <hr/>
-                                            <div dangerouslySetInnerHTML={{__html: formatLog(bill.dianCreditMemoLog)}}/>
+                                            <textarea
+                                                rows={30}
+                                                readOnly
+                                                className="form-control w-100"
+                                                style={{height: '100%', border: 'none'}}
+                                            >
+                                                {bill.dianCreditMemoLog}
+                                            </textarea>
                                         </div>
                                     </div>
                                 </Col>

@@ -41,13 +41,6 @@ const municipalityColumns = (onDelete = false) => [
         ),
     },
     {
-        text: "Num. Legal",
-        dataField: "legalNumber",
-        sort: true,
-        filter: true,
-        filterType: "text"
-    },
-    {
         text: "Estado",
         dataField: "status",
         sort: true,
