@@ -211,27 +211,27 @@ const BillList = props => {
                                                             </Tooltip>
 
                                                             <HasPermissions permission={PERMISSIONS.BILL_CREATE}>
-                                                                <Tooltip placement="bottom" title="Generar Factura" aria-label="add">
+                                                                {/*<Tooltip placement="bottom" title="Generar Factura" aria-label="add">
                                                                 <Button color="primary" className="btn btn-rounded waves-effect waves-light" onClick={addOrders}>
                                                                     <i className="uil-bill me-2"> </i>
                                                                 </Button>
-                                                                </Tooltip>
+                                                                </Tooltip>*/}
                                                             </HasPermissions>
 
                                                             <HasPermissions permission={PERMISSIONS.BILL_CREATE}>
-                                                                <Tooltip placement="bottom" title="Generar Factura (Payu)" aria-label="add">
+                                                                {/*<Tooltip placement="bottom" title="Generar Factura (Payu)" aria-label="add">
                                                                 <Button color="primary" className="btn btn-rounded waves-effect waves-effect" onClick={addOrdersPayu}>
                                                                     <i className="uil-bill me-2"> </i>
                                                                 </Button>
-                                                                </Tooltip>
+                                                                </Tooltip>*/}
                                                             </HasPermissions>
 
                                                             <HasPermissions permission={PERMISSIONS.BILL_CREATE}>
-                                                                <Tooltip placement="bottom" title="Generar Factura (Servientrega)" aria-label="add">
+                                                                {/*<Tooltip placement="bottom" title="Generar Factura (Servientrega)" aria-label="add">
                                                                     <Button color="primary" className="btn btn-rounded waves-effect waves-effect" onClick={addOrdersServiEntrega}>
                                                                         <i className="uil-bill me-2"> </i>
                                                                     </Button>
-                                                                </Tooltip>
+                                                                </Tooltip>*/}
                                                             </HasPermissions>
                                                         </div>
                                                     </Col>
