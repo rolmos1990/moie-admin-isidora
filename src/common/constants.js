@@ -143,7 +143,7 @@ export const REPORT_TYPES = {
 export const BILL_STATUS = {
     PENDING: 'Pendiente',
     SENT: 'Enviada',
-    ERROR: 'Error DIAN'
+    ERROR: 'Error'
 };
 
 export const BILL_MEMO_TYPES = {
