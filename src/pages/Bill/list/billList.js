@@ -65,6 +65,7 @@ const BillList = props => {
     const handleTableChange = (type, {page, searchText}) => {
         const offset = (page - 1) * DEFAULT_PAGE_LIMIT;
         onGetBills(conditional, DEFAULT_PAGE_LIMIT, offset);
+        console.log('conditional: ', conditional);
         onSaveTableConditions(conditional, offset, 'bill');
     }
 

@@ -31,7 +31,7 @@ const BillDetail = (props) => {
 
 
     useEffect(() => {
-        if (props.match.params.id) {
+        if (props && props.match && props.match.params.id) {
             onGetBill(props.match.params.id);
         }
     }, [onGetBill, refresh]);
@@ -287,7 +287,7 @@ const BillDetail = (props) => {
                                                 className="form-control w-100"
                                                 style={{height: '100%', border: 'none'}}
                                             >
-                                                {bill.dianLog}
+                                                {(bill && bill.dianLog) || ""}
                                             </textarea>
                                             </div>
                                         </div>
@@ -301,7 +301,7 @@ const BillDetail = (props) => {
                                                 className="form-control w-100"
                                                 style={{height: '100%', border: 'none'}}
                                             >
-                                                {bill.dianCreditMemoLog}
+                                                {(bill && bill.dianCreditMemoLog) || ""}
                                             </textarea>
                                         </div>
                                     </div>

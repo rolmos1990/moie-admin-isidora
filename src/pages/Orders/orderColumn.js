@@ -14,6 +14,11 @@ const statusOptions = buildOptions(ORDER_STATUS_LIST);
 const deliveryMethodsOptions = buildOptions(DELIVERY_METHODS_LIST);
 const deliveryTypeOptions = buildOptions(DELIVERY_TYPES_LIST);
 
+const billOptions = buildOptions([
+    {label: 'Facturado', value: 'nnull'},
+    {label: 'No Facturado', value: 'null'}
+]);
+
 const deliveryTypes = {
     PREVIO_PAGO:  DELIVERY_TYPES[0].label,
     PREVIO_PAGO_COD: '',
@@ -68,16 +73,20 @@ const orderColumns = (onSelectedOrder, showAsModal, conciliationView) => {
                             </div>
                             <div>
                             <small className="bg-grey badge badge-soft-secondary"><i className="fa fa-user"></i> { item.user.name }</small>
-                        </div>
-                    </Link>)
+                            </div>
+                            <div>
+                                {((item && item.bill) != null) && <i className={"uil-bill font-size-18 me-2 text-warning"} title="Facturada"> </i>}
+                            </div>
+                        </Link>)
                     : (<>
-                        {item.customer.name}
+                            {item.customer.name}
                         {item.customer.isMayorist === true && (
                             <Tooltip placement="bottom" title="Cliente mayorista" aria-label="add">
                                 <i className={"mdi mdi-crown font-size-18 mr-1 text-warning"}> </i>
                             </Tooltip>
                         )}
-                    </>)
+                    </>
+                    )
             ),
         },
         {
@@ -177,6 +186,18 @@ const orderColumns = (onSelectedOrder, showAsModal, conciliationView) => {
             formatter: (cellContent, item) => (
                 <div>{item.user.name}</div>
             ),
+        },
+        {
+            text: "Facturado",
+            dataField: "bill",
+            hidden: true,
+            sort: false,
+            filter: true,
+            hasWild: false,
+            filterType: "select",
+            filterCondition: ".id$",
+            filterOptions: billOptions,
+            defaultConditions: [{field: 'bill', value: '_', operator: ".id$"}],
         }
     ];
 
@@ -217,5 +238,4 @@ const orderColumns = (onSelectedOrder, showAsModal, conciliationView) => {
 
     return columns;
 }
-
 export default orderColumns;

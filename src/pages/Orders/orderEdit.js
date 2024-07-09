@@ -58,6 +58,9 @@ import OrderTracking from "./create/orderTracking";
 import {changePreloader} from "../../store/layout/actions";
 import ButtonLoading from "../../components/Common/ButtonLoading";
 import HasPermissionsFunc from "../../components/HasPermissionsFunc";
+import {fetchBillApi, fetchCategoriesApi, registerBillInOrderApi} from "../../helpers/backend_helper";
+import {showMessage} from "../../components/MessageToast/ShowToastMessages";
+import {ConfirmationModalAction} from "../../components/Modal/ConfirmationModal";
 
 // import {toPng, toJpeg, toBlob, toPixelData, toSvg} from 'html-to-image';
 
@@ -92,6 +95,7 @@ const OrderEdit = (props) => {
     const [showAsTable, setShowAsTable] = useState(false);
     const [orderPrint, setOrderPrint] = useState('');
     const [downloadingPhoto, setDownloadingPhoto] = useState(false);
+    const [creatingBill, setCreatingBill] = useState(false);
     const [activeTab, setActiveTab] = useState(3);
 
     const [openPrintConfirmModal, setOpenPrintConfirmModal] = useState(false);
@@ -208,6 +212,22 @@ const OrderEdit = (props) => {
         printPartOfPage(orderPrint);
         setOpenPrintConfirmModal(true);
         onChangePreloader(false);
+    }
+
+    const newBill = () => {
+        ConfirmationModalAction({
+            title: '¿Seguro desea crear una factura para este pedido?',
+            description: 'Usted esta generando una nueva factura para el pedido.',
+            id: '_observationsModal',
+            onConfirm: () => {
+                setCreatingBill(true);
+                registerBillInOrderApi(order).then((p => {
+                    setCreatingBill(false);
+                    onGetOrder(orderId);
+                    showMessage.success('Su factura ha sido creada.');
+                }))
+            }
+        });
     }
 
     const toggleModal = () => {
@@ -430,6 +450,16 @@ const OrderEdit = (props) => {
         }
     }
 
+    const canCreateBill = () => {
+
+        if (!HasPermissionsFunc([PERMISSIONS.BILL_CREATE])) {
+            return false;
+        }
+
+        return (order && order.status == ORDERS_ENUM.FINISHED && order.bill == null
+        ) ? true : false;
+    }
+
     const isNextPrint = () => {
         const isPrevPayment = order?.orderDelivery && ([1, 2].includes(order?.orderDelivery.deliveryType));
 
@@ -486,6 +516,11 @@ const OrderEdit = (props) => {
                         <small className="badge rounded-pill bg-soft-success font-size-14 mr-5 p-2">
                             F. Venta: {formatDate(order?.dateOfSale, DATE_FORMAT.ONLY_DATE)}
                         </small>}
+
+                        {(order && order?.bill != null) &&
+                            <small className="badge rounded-pill bg-soft-primary font-size-14 mr-5 p-2">
+                                &nbsp; <i className={"uil-bill me-2"}> </i>
+                            </small>}
                     </div>
                     <div className={"mb-3 float-md-end"}>
                         <HasPermissions permission={PERMISSIONS.ORDER_EDIT}>
@@ -529,6 +564,15 @@ const OrderEdit = (props) => {
                                         </ButtonLoading>
                                     </Tooltip>
 
+                                )}
+                                {canCreateBill() && (
+                                    <Tooltip placement="bottom" title="Generar Factura" aria-label="add">
+                                        <span>
+                                        <ButtonLoading loading={creatingBill} type="button" color="primary" className="btn-sm btn btn-outline-info waves-effect waves-light" onClick={() => newBill()}>
+                                            <i className={"uil-bill me-2"}> </i>
+                                        </ButtonLoading>
+                                        </span>
+                                    </Tooltip>
                                 )}
                                 {canGeneratePayu() && (
                                 <Tooltip placement="bottom" title="Generar link de Pago" aria-label="add">

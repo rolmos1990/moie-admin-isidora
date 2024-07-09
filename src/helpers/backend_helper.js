@@ -130,6 +130,7 @@ const printOfficeReportApi = id => get(`${url.OFFICES}/batch/printRequest/${id}`
 //bills
 const fetchBillsApi = params => get(url.BILLS, {}, params);
 const fetchBillApi = data => get((data && data.id) ? `${url.BILLS}/${data.id}` : url.BILLS, data);
+const registerBillInOrderApi = data => post(`${url.BILLS}/sendBillFromOrder/${data.id}`, data);
 const registerBillApi = data => post(url.BILLS, data);
 const updateBillApi = (id, data) => put(`${url.BILLS}/${id}`, data);
 const deleteBillApi = (id) => del(`${url.BILLS}/${id}`);
@@ -360,6 +361,7 @@ export {
 
     fetchBillsApi,
     fetchBillApi,
+    registerBillInOrderApi,
     registerBillApi,
     updateBillApi,
     deleteBillApi,

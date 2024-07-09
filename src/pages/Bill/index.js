@@ -11,7 +11,7 @@ const Bills = () => {
         <React.Fragment>
             <div className="page-content">
                 <Container fluid>
-                    <Breadcrumb path="/bills" title={null} item="Facturas"/>
+                    <Breadcrumb path="/bills" title={""} item="Facturas"/>
                     <HasPermissions permissions={[PERMISSIONS.BILL_LIST]} renderNoAccess={() => <NoAccess/>}>
                         <BillList/>
                     </HasPermissions>

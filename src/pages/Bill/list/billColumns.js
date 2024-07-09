@@ -12,7 +12,7 @@ import {PERMISSIONS} from "../../../helpers/security_rol";
 
 const statusOptions = buildOptions(ORDER_STATUS_LIST);
 
-const municipalityColumns = (onDelete = false) => [
+const billColumns = (onDelete = false) => [
     {
         text: "#",
         dataField: "id",
@@ -113,4 +113,4 @@ const municipalityColumns = (onDelete = false) => [
     },
 ]
 
-export default municipalityColumns;
+export default billColumns;
