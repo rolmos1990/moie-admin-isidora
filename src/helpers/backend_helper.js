@@ -106,6 +106,8 @@ const updateOrderApi = (id, data) => put(`${url.ORDERS}/${id}`, data);
 const updateOrderProductsApi = (id, data) => put(`${url.ORDERS}/${id}/update/inventary`, data);
 const deleteOrderApi = (id) => del(`${url.ORDERS}/${id}`);
 const batchPrintRequestApi = (data) => get(`${url.ORDERS}/batch/printRequest`, {}, data);
+
+const batchBillRequestApi = (data) => get(`${url.ORDERS}/batch/billRequest`, {}, data);
 const conciliationRequestApi = (data) => post(`${url.ORDERS}/conciliation`, data);
 const confirmConciliationRequestApi = (data) => post(`${url.ORDERS}/ConfirmConciliation`, data);
 const postSaleGenerateReportApi = (data) => post(`${url.ORDERS}/generate/report`, data, {});
@@ -306,6 +308,7 @@ export {
     updateOrderProductsApi,
     deleteOrderApi,
     batchPrintRequestApi,
+    batchBillRequestApi,
 
     fetchTemplatesApi,
     fetchTemplateApi,

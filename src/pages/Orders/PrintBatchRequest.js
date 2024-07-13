@@ -5,18 +5,25 @@ import {withRouter} from "react-router-dom"
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {printPartOfPage} from "../../common/utils";
-import {nextStatusOrder, printBatchRequest, resetBatchRequest, resetOrder} from "../../store/order/actions";
+import {
+    nextStatusOrder,
+    printBatchRequest,
+    refreshOrders,
+    resetBatchRequest,
+    resetOrder
+} from "../../store/order/actions";
 import CustomModal from "../../components/Modal/CommosModal";
 import {changePreloader} from "../../store/layout/actions";
+import {showMessage} from "../../components/MessageToast/ShowToastMessages";
 
 const PrintBatchRequest = (props) => {
 
-    const {batch, conditionals, doRequest, refresh, error} = props;
+    const {batch, conditionals, doRequest, refresh, error, batchType, onResetOrder} = props;
     const [openPrintConfirmModal, setOpenPrintConfirmModal] = useState(false);
 
     useEffect(() => {
         if (conditionals && doRequest) {
-            props.onPrintBatchRequest(conditionals);
+            props.onPrintBatchRequest(conditionals,batchType);
         }
     }, [conditionals, doRequest]);
 
@@ -25,26 +32,46 @@ const PrintBatchRequest = (props) => {
     }, [refresh]);
 
     useEffect(() => {
-        if (batch && batch.body) {
-            let html = null;
-            batch.body.forEach((body) => {
-                if (html) {
-                    html += '<br/>';
-                } else {
-                    html = '';
-                }
-                html += body.html;
-            })
-            printOrder(html)
+        if (batch && batch.body && isPrint()) {
+           onCompletePrint();
+        } else if (batch && batch.body && isBill()) {
+            onCompleteBill();
         }
     }, [batch]);
 
+    const onCompletePrint = () => {
+        let html = null;
+        batch.body.forEach((body) => {
+            if (html) {
+                html += '<br/>';
+            } else {
+                html = '';
+            }
+            html += body.html;
+        })
+        printOrder(html)
+    }
+    const onCompleteBill = () => {
+        showMessage.success('Se ha generado una solicitud de facturación');
+        props.onChangePreloader(false);
+        onResetOrder();
+    }
+
     useEffect(() => {
-        if (error) {
+        if (error && isPrint()) {
             setOpenPrintConfirmModal(false);
-            props.onChangePreloader(false);
         }
+            props.onChangePreloader(false);
     }, [error]);
+
+    const isPrint = () => {
+     return batchType == 'print';
+    }
+
+    const isBill = () => {
+        console.log('batchType Bill', batchType);
+        return batchType == 'bill';
+    }
 
     const printOrder = (text) => {
         setOpenPrintConfirmModal(true)
@@ -85,14 +112,14 @@ const PrintBatchRequest = (props) => {
 
 const mapStateToProps = state => {
     const {batchRequest, refresh} = state.Order
-    const {batch, error, meta, conditionals, doRequest, loading} = batchRequest
-    return {batch, error, meta, conditionals, doRequest, loading, refresh}
+    const {batch, error, meta, conditionals, doRequest, loading, batchType} = batchRequest
+    return {batch, error, meta, conditionals, doRequest, loading, refresh, batchType}
 }
 
 const mapDispatchToProps = dispatch => ({
-    onResetOrder: () => dispatch(resetOrder()),
+    onResetOrder: () => dispatch(refreshOrders()),
     onChangePreloader: (preloader) => dispatch(changePreloader(preloader)),
-    onPrintBatchRequest: (conditional) => dispatch(printBatchRequest(conditional)),
+    onPrintBatchRequest: (conditional,type) => dispatch(printBatchRequest(conditional,type)),
     onNextStatusOrder: (id = []) => dispatch(nextStatusOrder({batch: id})),
     onResetBatchRequest: (id = []) => dispatch(resetBatchRequest()),
 })

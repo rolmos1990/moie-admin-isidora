@@ -304,16 +304,18 @@ export const updateCard = (payload) => ({
 
 
 //BATCH_REQUEST
-export const doPrintBatchRequest = (conditionals) => ({
+export const doPrintBatchRequest = (conditionals, batchType) => ({
     type: DO_BATCH_REQUEST,
-    conditionals: conditionals
+    conditionals: conditionals,
+    batchType: batchType
 })
 export const resetBatchRequest = () => ({
     type: RESET_BATCH_REQUEST
 })
-export const printBatchRequest = (conditionals) => ({
+export const printBatchRequest = (conditionals, batchType) => ({
     type: PRINT_BATCH_REQUEST,
-    conditionals: conditionals
+    conditionals: conditionals,
+    batchType: batchType
 })
 export const printBatchRequestSuccess = (data, meta) => ({
     type: PRINT_BATCH_REQUEST_SUCCESS,

@@ -329,7 +329,8 @@ const order = (state = initialState, action) => {
                 batchRequest: {
                     ...state.batchRequest,
                     conditionals: action.conditionals,
-                    doRequest: true
+                    doRequest: true,
+                    batchType: action.batchType
                 }
             }
         case PRINT_BATCH_REQUEST:
@@ -339,7 +340,8 @@ const order = (state = initialState, action) => {
                     ...state.batchRequest,
                     conditionals: action.conditionals,
                     doRequest: false,
-                    loading: true
+                    loading: true,
+                    batchType: action.batchType
                 },
                 error: null
             }
@@ -373,7 +375,8 @@ const order = (state = initialState, action) => {
                     error: null,
                     conditionals: null,
                     doRequest: false,
-                    loading: false
+                    loading: false,
+                    batchType: null
                 }
             }
         case REFRESH_ORDER:

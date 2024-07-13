@@ -12,6 +12,7 @@ import avatar4 from "../../../assets/images/users/avatar-4.jpg"
 import { withTranslation } from "react-i18next"
 import PrintBatchRequest from "../../../pages/Orders/PrintBatchRequest";
 import CatalogPrintBatchRequest from "../../../pages/Category/CatalogPrintBatchRequest";
+import BillBatchRequest from "../../../pages/Orders/BillBatchRequest";
 
 const NotificationDropdown = props => {
   // Declare a new state variable, which we'll call "menu"
@@ -37,6 +38,7 @@ const NotificationDropdown = props => {
 
       <PrintBatchRequest />
       <CatalogPrintBatchRequest />
+      {/*<BillBatchRequest />*/}
     </>
   )
 }

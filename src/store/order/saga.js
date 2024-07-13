@@ -56,6 +56,7 @@ import {
 } from "./actions"
 
 import {
+    batchBillRequestApi,
     batchPrintRequestApi,
     canceledStatusOrderApi,
     conciliationRequestApi,
@@ -100,6 +101,7 @@ const POST_API_REQUEST = registerOrderApi;
 const PUT_API_REQUEST = updateOrderApi;
 const PUT_ORDER_PRODUCTS_API_REQUEST = updateOrderProductsApi;
 const BATCH_REQUEST_API_REQUEST = batchPrintRequestApi;
+const BATCH_BILL_REQUEST_API_REQUEST = batchBillRequestApi;
 const CONCILIATION_REQUEST_API_REQUEST = conciliationRequestApi;
 const CONFIRM_CONCILIATION_REQUEST_API_REQUEST = confirmConciliationRequestApi;
 const ORDER_HISTORIC_API_REQUEST = orderHistoric;
@@ -292,11 +294,24 @@ function* fetchDeliveryQuote({data}) {
     }
 }
 
-function* batchRequest({conditionals}) {
+function* batchRequest({conditionals, batchType}) {
     try {
         const cond = Conditionals.getConditionalFormat(conditionals);
         const query = Conditionals.buildHttpGetQuery(cond);
-        const response = yield call(BATCH_REQUEST_API_REQUEST, query)
+
+        let response;
+
+        console.log('conditionals..', conditionals);
+        console.log('batchType: ', batchType);
+
+        if(batchType == 'bill') {
+            response = yield call(BATCH_BILL_REQUEST_API_REQUEST, query)
+        } else if(batchType == 'print'){
+            response = yield call(BATCH_REQUEST_API_REQUEST, query)
+        } else {
+            yield put(PRINT_BATCH_REQUEST_FAILED_ACTION('No se encontro consulta a realizar'))
+        }
+
         yield put(PRINT_BATCH_REQUEST_SUCCESS_ACTION(response.batch, response.meta))
     } catch (error) {
         showResponseMessage(error, "Operación falida!", getErrorMessage(error));

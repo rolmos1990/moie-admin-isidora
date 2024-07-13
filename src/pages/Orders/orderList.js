@@ -14,6 +14,7 @@ import NoDataIndication from "../../components/Common/NoDataIndication";
 import orderColumns from "./orderColumn";
 import {Button, Tooltip} from "@material-ui/core";
 import {
+    doBillBatchRequest,
     doConciliation,
     doPrintBatchRequest,
     getOrders,
@@ -126,7 +127,7 @@ const OrderList = props => {
                 conditionals.push({field: 'id', value: ordersSelected.join('::'), operator: Conditionals.OPERATORS.IN});
             }
 
-            props.onPrintBatchRequest(conditionals);
+            props.onBatchRequest(conditionals,'print');
 
         } else if(meta?.totalRegisters > totalPrintsAvailables){
             showMessage.error('Total de impresiones excede la capacidad a imprimir de '+totalPrintsAvailables +' elementos');
@@ -134,6 +135,33 @@ const OrderList = props => {
         }
         else{
             showMessage.error('Debe realizar algun filtro para poder realizar una impresión');
+
+        }
+    }
+
+    const billOrders = () => {
+        let conditionals = conditional ? [...conditional] : [];
+        const totalPrintsAvailables = 1000;
+
+        if(conditionals.length >= 0 && (meta?.totalRegisters <= totalPrintsAvailables)) {
+
+            onChangePreloader(true);
+
+            if (ordersSelected && ordersSelected.length === 1) {
+                conditionals.push({field: 'id', value: ordersSelected[0], operator: Conditionals.OPERATORS.EQUAL});
+            }
+            if (ordersSelected && ordersSelected.length > 1) {
+                conditionals.push({field: 'id', value: ordersSelected.join('::'), operator: Conditionals.OPERATORS.IN});
+            }
+
+            props.onBatchRequest(conditionals,'bill');
+
+        } else if(meta?.totalRegisters > totalPrintsAvailables){
+            showMessage.error('Total de facturas excede la capacidad a imprimir de '+totalPrintsAvailables +' elementos');
+
+        }
+        else{
+            showMessage.error('Debe realizar algun filtro para poder realizar una facturación');
 
         }
     }
@@ -279,6 +307,14 @@ const OrderList = props => {
                                                                                 <i className="mdi mdi-printer"> </i>
                                                                             </Button>
                                                                         </Tooltip>
+                                                                        <HasPermissions permission={PERMISSIONS.BILL_CREATE}>
+                                                                        <Tooltip placement="bottom" title="Facturación multiple" aria-label="add">
+                                                                            <Button color="primary" onClick={() => billOrders()}
+                                                                                    disabled={(ordersSelected.length === 0 && !selectAll) && (!conditional || conditional.length === 0)}>
+                                                                                <i className="uil-bill me-2"> </i>
+                                                                            </Button>
+                                                                        </Tooltip>
+                                                                        </HasPermissions>
                                                                         <Tooltip placement="bottom" title="Confirmar Conciliados" aria-label="add">
                                                                             <Button color="primary" onClick={() => setOpenConfirmConciliationModal(true)}>
                                                                                 <i className="mdi mdi-check"> </i>
@@ -413,7 +449,7 @@ const mapDispatchToProps = dispatch => ({
     },
     onChangePreloader: (preloader) => dispatch(changePreloader(preloader)),
     onGetOrders: (conditional = null, limit = DEFAULT_PAGE_LIMIT, page) => dispatch(getOrders(conditional, limit, page, false, true)),
-    onPrintBatchRequest: (conditional) => dispatch(doPrintBatchRequest(conditional)),
+    onBatchRequest: (conditional,type) => dispatch(doPrintBatchRequest(conditional,type)),
     onConciliation: (ordersSelected) => dispatch(doConciliation(ordersSelected)),
 })
 
